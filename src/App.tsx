@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.scss';
+import Layout from './containers/Layout/Layout';
+
 
 function App() {
-
-
-
-
   return (
-    <h6 style={{ fontFamily: 'Ubuntu' }}>Ubuntu fonts</h6>
+    <Layout></Layout>
   );
 }
 

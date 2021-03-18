@@ -347,3 +347,10 @@
  [hidden] {
    display: none;
  }
+
+ div#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Ubuntu';
+ }
