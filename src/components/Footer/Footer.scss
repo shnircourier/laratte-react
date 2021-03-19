@@ -1,0 +1,28 @@
+.footer {
+   &__links {
+      margin: 20px 0;
+      display: flex;
+      a {
+         color: #ffffff;
+         font-size: 36px;
+         margin-right: 36px;
+         display: block;
+         transition: color 0.3s ease-in;
+         &:last-child {
+            margin-right: 0;
+         }
+         &:hover {
+            color: #6ec6ff;
+         }
+      }
+   }
+
+   &__copyright {
+      margin-top: 12px;
+   }
+
+   &__info {
+      font-size: 16px;
+      color: #ffffff;
+   }
+}
