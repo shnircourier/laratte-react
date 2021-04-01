@@ -1,8 +1,11 @@
 .header {
    background-color: #2196f3;
    flex: 0 0 auto;
-   box-shadow: 0 0 6px 0px #000000;
+   box-shadow: 0 0 8px 0px #000000;
    z-index: 4;
+   width: 100%;
+   position: sticky;
+   top: 0;
    &__container {
       display: flex;
       justify-content: space-between;
@@ -18,7 +21,8 @@
    background-color: #e0e0e0;
    flex: 1 0 auto;
    &__container {
-
+      display: flex;
+      justify-content: center;
    }
 }
 .footer {

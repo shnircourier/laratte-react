@@ -1,0 +1,63 @@
+.article {
+   margin-top: 16px;
+   background-color: #ffffff;
+   box-sizing: border-box;
+   border: 1px solid #aeaeae;
+   border-radius: 12px;
+   padding: 12px;
+
+   &:first-child {
+      margin-top: 0;
+   }
+
+   &:last-child {
+      margin-bottom: 16px;
+   }
+
+   &__author-info {
+      border-bottom: 1px solid #aeaeae;
+   }
+
+   &__author-name {
+      margin: 0;
+   }
+
+   &__author-email {
+      margin: 0;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #aeaeae;
+   }
+
+   &__article-description {
+      margin: 24px 0;
+      text-transform: capitalize;
+      font-size: 36px;
+   }
+
+   &__article-title {
+      margin: 0;
+   }
+
+   &__article-actions {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__article-info {
+      display: flex;
+      align-items: center;
+      
+      & > i {
+         font-size: 28px;
+         color: #8b8b8b;
+      }
+      
+   }
+
+   &__article-counter {
+      margin: 0 12px;
+      font-size: 22px;
+      color: #e0e0e0;
+   }
+}
