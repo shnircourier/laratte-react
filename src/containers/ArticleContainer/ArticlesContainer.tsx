@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Articles from '../../components/Articles/Articles';
 import PostInterface from '../../interfaces/PostInterface';
 import UserInterface from '../../interfaces/UserInterface';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 
-const ArticleContainer = () => {
+const ArticleContainer: React.FC = () => {
    const [posts, setPosts] = useState<PostInterface[]>([]);
    const [users, setUsers] = useState<UserInterface[]>([]);
 
-   let articles = <h1>Loading...</h1>;
+   let articles = <Spinner />
 
    if (posts.length !== 0 && users.length !== 0)
       articles = <Articles
