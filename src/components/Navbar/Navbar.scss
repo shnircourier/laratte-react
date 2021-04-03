@@ -12,7 +12,7 @@
 
    &__list {
       margin-right: 20px;
-      font-size: 36px;
+      font-size: 24px;
       height: 100%;
       box-sizing: border-box;
       position: relative;
@@ -27,14 +27,15 @@
          left: 0;
          bottom: 0;
          display: block;
-         width: 0%;
+         width: 100%;
+         transform: scaleX(0);
          height: 3px;
          background-color: #ffffff;
-         transition: width 0.3s ease;
+         transition: transform 0.3s ease;
       }
 
       &:hover::after {
-         width: 100%;
+         transform: scaleX(1);
       }
    }
 

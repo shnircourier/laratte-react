@@ -30,7 +30,7 @@ const article: React.FC<ArticleProps> = props => {
                <span className="article__article-counter">24</span>
             </div>
             <div className="article__article-buttons">
-               <Button>Подробнее</Button>
+               <Button>Read</Button>
             </div>
          </div>
       </div>

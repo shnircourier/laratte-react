@@ -2,6 +2,7 @@ import React from 'react';
 import PostInterface from '../../interfaces/PostInterface';
 import UserInterface from '../../interfaces/UserInterface';
 import Article from './Article/Article';
+import ArticleSorter from './ArticleSorter/ArticleSorter';
 import './Articles.scss';
 
 type ArticlesProps = {
@@ -14,6 +15,7 @@ const articles: React.FC<ArticlesProps> = props => {
 
    return (
       <div className="articles">
+         <ArticleSorter />
          {posts.map(post => <Article
             key={post.id}
             post={post}

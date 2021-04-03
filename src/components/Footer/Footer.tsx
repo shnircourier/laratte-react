@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import './Footer.scss';
 
-const footer = () => {
+const footer: React.FC = () => {
    return (
       <>
          <Logo />
