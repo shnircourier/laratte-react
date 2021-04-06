@@ -5,7 +5,7 @@ import UserInterface from '../../interfaces/UserInterface';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 
-const ArticleContainer: React.FC = () => {
+const ArticlesContainer: React.FC = () => {
    const [posts, setPosts] = useState<PostInterface[]>([]);
    const [users, setUsers] = useState<UserInterface[]>([]);
 
@@ -34,4 +34,4 @@ const ArticleContainer: React.FC = () => {
 }
 
 
-export default ArticleContainer;
+export default ArticlesContainer;
