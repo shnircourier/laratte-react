@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.scss';
 import Layout from './containers/Layout/Layout';
-import ArticlesContainer from './containers/ArticleContainer/ArticlesContainer';
+import Routes from './routes/Routes';
 
 function App() {
   return (
     <Layout>
-      <ArticlesContainer />
+      <Routes />
     </Layout>
   );
 }
