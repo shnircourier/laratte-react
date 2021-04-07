@@ -4,6 +4,7 @@ import PhotoInterface from '../../interfaces/PhotoInterface';
 import PostInterface from '../../interfaces/PostInterface';
 import UserInterface from '../../interfaces/UserInterface';
 import Article from '../../components/Articles/Article/Article';
+import ArticleImage from '../../components/Articles/Article/ArticleImage/ArticleImage';
 
 type RouteParams = {
    id: string
@@ -30,10 +31,10 @@ const ArticleContainer: React.FC = () => {
                .then(data => setPhoto(data));
          });
    }, []);
-
+   
    return (
-      <Article marginTop>
-         
+      <Article single>
+         <ArticleImage imgUrl={photo?.url} />
       </Article>
    );
 }

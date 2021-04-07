@@ -2,15 +2,15 @@ import React from 'react';
 import './Article.scss';
 
 type articleProps = {
-   marginTop?: boolean
+   single?: boolean
 }
 
 const article: React.FC<articleProps> = props => {
 
    const classes = ["article"];
 
-   if (props.marginTop)
-      classes.push("article_margin_top");
+   if (props.single)
+      classes.push("article_single");
 
    return (
       <div className={classes.join(' ')}>

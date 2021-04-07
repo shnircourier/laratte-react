@@ -1,4 +1,8 @@
 .articles {
    margin-top: 16px;
    width: 100%;
+   display: flex;
+   &__container {
+      flex: 1 1 auto;
+   }
 }

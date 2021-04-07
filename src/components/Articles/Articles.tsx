@@ -4,6 +4,8 @@ import UserInterface from '../../interfaces/UserInterface';
 import Article from './Article/Article';
 import ArticleSorter from './ArticleSorter/ArticleSorter';
 import ArticleList from './ArticleList/ArticleList';
+import Sidebar from '../UI/Sidebar/Sidebar';
+import SideLinks from '../SideLinks/SideLinks';
 import './Articles.scss';
 
 type ArticlesProps = {
@@ -16,13 +18,15 @@ const articles: React.FC<ArticlesProps> = props => {
 
    return (
       <div className="articles">
-         <ArticleSorter />
-         {posts.map(post => <Article key={post.id}>
-            <ArticleList
-               post={post}
-               user={users.find(user => user.id === post.userId)}
-            />
-         </Article>)}
+         <div className="articles__container">
+            <ArticleSorter />
+            {posts.map(post => <Article key={post.id}>
+               <ArticleList
+                  post={post}
+                  user={users.find(user => user.id === post.userId)}
+               />
+            </Article>)}
+         </div>
       </div>
    );
 }
