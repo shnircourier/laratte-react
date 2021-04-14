@@ -1,0 +1,10 @@
+.article-title {
+
+   margin: 24px 0;
+   text-transform: capitalize;
+   font-size: 36px;
+
+   &__title {
+      margin: 0;
+   }
+}

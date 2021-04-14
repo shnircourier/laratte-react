@@ -2,13 +2,14 @@ import React from 'react';
 import './Button.scss';
 
 type buttonProps = {
-   type?: string
+   type?: string,
+   onClickHandler: (id?: number) => void
 }
 
 const button: React.FC<buttonProps> = props => {
 
    return (
-      <button className="button"><span className="button__text">{props.children}</span></button>
+      <button onClick={() => props.onClickHandler()} className="button"><span className="button__text">{props.children}</span></button>
    );
 }
 

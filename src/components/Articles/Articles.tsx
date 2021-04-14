@@ -3,18 +3,17 @@ import PostInterface from '../../interfaces/PostInterface';
 import UserInterface from '../../interfaces/UserInterface';
 import Article from './Article/Article';
 import ArticleSorter from './ArticleSorter/ArticleSorter';
-import ArticleList from './ArticleList/ArticleList';
-import Sidebar from '../UI/Sidebar/Sidebar';
-import SideLinks from '../SideLinks/SideLinks';
+import ArticleList from './Article/ArticleList/ArticleList';
 import './Articles.scss';
 
 type ArticlesProps = {
    posts: PostInterface[],
-   users: UserInterface[]
+   users: UserInterface[],
+   onClickHandler: (id?: number) => void
 }
 
 const articles: React.FC<ArticlesProps> = props => {
-   const { posts, users } = props;
+   const { posts, users, onClickHandler } = props;
 
    return (
       <div className="articles">
@@ -24,6 +23,7 @@ const articles: React.FC<ArticlesProps> = props => {
                <ArticleList
                   post={post}
                   user={users.find(user => user.id === post.userId)}
+                  onClickHandler={onClickHandler}
                />
             </Article>)}
          </div>

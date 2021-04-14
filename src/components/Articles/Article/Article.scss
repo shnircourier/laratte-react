@@ -1,9 +1,10 @@
 .article {
    margin-top: 16px;
    background-color: #ffffff;
+   border-radius: 8px;
    box-sizing: border-box;
-   border: 1px solid #aeaeae;
-   border-radius: 12px;
+   overflow: hidden;
+   box-shadow: 0 0 1px #000000;
 
    &:first-child {
       margin-top: 0;
@@ -16,6 +17,7 @@
    &.article_single {
       &:first-child {
          margin-top: 16px;
+         width: 100%;
       }
    }
 

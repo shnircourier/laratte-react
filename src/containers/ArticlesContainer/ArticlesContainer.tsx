@@ -3,11 +3,18 @@ import Articles from '../../components/Articles/Articles';
 import PostInterface from '../../interfaces/PostInterface';
 import UserInterface from '../../interfaces/UserInterface';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import { useHistory } from 'react-router';
 
 
 const ArticlesContainer: React.FC = () => {
    const [posts, setPosts] = useState<PostInterface[]>([]);
    const [users, setUsers] = useState<UserInterface[]>([]);
+   const history = useHistory();
+
+   const onClickButtonHandler = (id?: number) => {
+      if (id)
+         history.push('/articles/' + id);
+   }
 
    let articles = <Spinner />
 
@@ -15,6 +22,7 @@ const ArticlesContainer: React.FC = () => {
       articles = <Articles
          posts={posts}
          users={users}
+         onClickHandler={onClickButtonHandler}
       />;
 
    useEffect(() => {

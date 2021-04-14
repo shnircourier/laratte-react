@@ -3,8 +3,12 @@ import { useParams } from 'react-router';
 import PhotoInterface from '../../interfaces/PhotoInterface';
 import PostInterface from '../../interfaces/PostInterface';
 import UserInterface from '../../interfaces/UserInterface';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import Article from '../../components/Articles/Article/Article';
 import ArticleImage from '../../components/Articles/Article/ArticleImage/ArticleImage';
+import ArticleContent from '../../components/Articles/Article/ArticleContent/ArticleContent';
+import ArticleTitle from '../../components/Articles/Article/ArticleTitle/ArticleTitle';
+import ArticleAuthor from '../../components/Articles/Article/ArticleAuthor/ArticleAuthor';
 
 type RouteParams = {
    id: string
@@ -31,11 +35,23 @@ const ArticleContainer: React.FC = () => {
                .then(data => setPhoto(data));
          });
    }, []);
-   
-   return (
-      <Article single>
+
+   let article = <Spinner />;
+
+   if (post && user && photo) {
+      article = <Article single>
          <ArticleImage imgUrl={photo?.url} />
+         <ArticleContent text={post?.body}>
+            <ArticleTitle title={post?.title} />
+            <ArticleAuthor name={user?.name} email={user?.email} />
+         </ArticleContent>
       </Article>
+   }
+
+   return (
+      <>
+         {article}
+      </>
    );
 }
 
