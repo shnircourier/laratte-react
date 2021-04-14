@@ -1,0 +1,27 @@
+.article-tags-sort {
+   box-sizing: border-box;
+   padding: 8px;
+
+   & > h4 {
+      border-bottom: 1px solid #aeaeae;
+      padding-bottom: 16px;
+      box-sizing: border-box;
+      font-size: 20px;
+      margin: 0 0 4px 0;
+   }
+
+   &__tag-container {
+      display: flex;
+      flex-direction: column;
+      max-height: 250px;
+      min-width: 200px;
+      overflow: auto;
+   }
+
+   &__tag-link {
+      display: block;
+      font-size: 20px;
+      color: #5e5e5e;
+      text-decoration: none;
+   }
+}

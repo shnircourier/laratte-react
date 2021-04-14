@@ -3,6 +3,8 @@ import Articles from '../../components/Articles/Articles';
 import PostInterface from '../../interfaces/PostInterface';
 import UserInterface from '../../interfaces/UserInterface';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import Sidebar from '../../components/UI/Sidebar/Sidebar';
+import ArticleTagsSorter from '../../components/Articles/ArticleTagsSorter/ArticleTagsSorter';
 import { useHistory } from 'react-router';
 
 
@@ -19,11 +21,16 @@ const ArticlesContainer: React.FC = () => {
    let articles = <Spinner />
 
    if (posts.length !== 0 && users.length !== 0)
-      articles = <Articles
-         posts={posts}
-         users={users}
-         onClickHandler={onClickButtonHandler}
-      />;
+      articles = <>
+         <Sidebar>
+            <ArticleTagsSorter />
+         </Sidebar>
+         <Articles
+            posts={posts}
+            users={users}
+            onClickHandler={onClickButtonHandler}
+         />
+      </>;
 
    useEffect(() => {
       fetch('https://jsonplaceholder.typicode.com/users')
