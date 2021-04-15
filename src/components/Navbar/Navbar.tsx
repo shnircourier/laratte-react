@@ -6,7 +6,7 @@ const navbar: React.FC = () => {
       <nav className="navbar">
          <ul className="navbar__lists">
             <li className="navbar__list"><a href="№" className="navbar__link">Sign in</a></li>
-            <li className="navbar__list"><a href="№" className="navbar__link">Sign up</a></li>
+            <li className="navbar__list"><a href="№" className="navbar__link navbar__link-sign-up">Sign up</a></li>
          </ul>
       </nav>
    );

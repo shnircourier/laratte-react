@@ -5,9 +5,7 @@ import Routes from './routes/Routes';
 
 function App() {
   return (
-    <Layout>
-      <Routes />
-    </Layout>
+    <Routes />
   );
 }
 

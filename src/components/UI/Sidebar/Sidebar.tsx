@@ -3,9 +3,9 @@ import './Sidebar.scss';
 
 const sidebar: React.FC = props => {
    return (
-      <div className="sidebar">
+      <aside className="sidebar">
          {props.children}
-      </div>
+      </aside>
    );
 }
 

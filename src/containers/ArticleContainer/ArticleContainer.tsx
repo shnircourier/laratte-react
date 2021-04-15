@@ -9,6 +9,8 @@ import ArticleImage from '../../components/Articles/Article/ArticleImage/Article
 import ArticleContent from '../../components/Articles/Article/ArticleContent/ArticleContent';
 import ArticleTitle from '../../components/Articles/Article/ArticleTitle/ArticleTitle';
 import ArticleAuthor from '../../components/Articles/Article/ArticleAuthor/ArticleAuthor';
+import Sidebar from '../../components/UI/Sidebar/Sidebar';
+import ArticleStats from '../../components/Articles/Article/ArticleStats/ArticleStats';
 
 type RouteParams = {
    id: string
@@ -39,13 +41,18 @@ const ArticleContainer: React.FC = () => {
    let article = <Spinner />;
 
    if (post && user && photo) {
-      article = <Article single>
-         <ArticleImage imgUrl={photo?.url} />
-         <ArticleContent text={post?.body}>
-            <ArticleTitle title={post?.title} />
-            <ArticleAuthor name={user?.name} email={user?.email} />
-         </ArticleContent>
-      </Article>
+      article = <>
+         <Sidebar>
+            <ArticleStats />
+         </Sidebar>
+         <Article single>
+            <ArticleImage imgUrl={photo?.url} />
+            <ArticleContent text={post?.body}>
+               <ArticleTitle title={post?.title} />
+               <ArticleAuthor name={user?.name} email={user?.email} />
+            </ArticleContent>
+         </Article>
+      </>
    }
 
    return (
