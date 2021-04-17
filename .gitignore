@@ -10,7 +10,6 @@
 
 # production
 /build
-/src/components/Article/ArticleUserInfo
 
 # misc
 .DS_Store

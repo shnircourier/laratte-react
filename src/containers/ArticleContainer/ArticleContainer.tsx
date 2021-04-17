@@ -11,6 +11,7 @@ import ArticleTitle from '../../components/Articles/Article/ArticleTitle/Article
 import ArticleAuthor from '../../components/Articles/Article/ArticleAuthor/ArticleAuthor';
 import Sidebar from '../../components/UI/Sidebar/Sidebar';
 import ArticleStats from '../../components/Articles/Article/ArticleStats/ArticleStats';
+import ArticleUserInfo from '../../components/Articles/Article/ArticleUserInfo/ArticleUserInfo';
 
 type RouteParams = {
    id: string
@@ -52,6 +53,7 @@ const ArticleContainer: React.FC = () => {
                <ArticleAuthor name={user?.name} email={user?.email} />
             </ArticleContent>
          </Article>
+         <ArticleUserInfo photo={photo.thumbnailUrl} user={user} />
       </>
    }
 
