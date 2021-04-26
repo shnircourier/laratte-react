@@ -8,8 +8,10 @@ export const initPosts = () => {
    return async (dispatch: Dispatch<PostAction>) => {
       try {
          dispatch({ type: PostActionTypes.INIT_POSTS });
-         const response: PostInterface[] = await (await fetch('https://jsonplaceholder.typicode.com/posts')).json();
-         dispatch({ type: PostActionTypes.INIT_POSTS_COMPLETED, payload: response });
+         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+         if (!response.ok) throw new Error();
+         const body: PostInterface[] = await response.json();
+         dispatch({ type: PostActionTypes.INIT_POSTS_COMPLETED, payload: body });
       } catch (error) {
          dispatch({ type: PostActionTypes.INIT_POSTS_FAILED, payload: "Что-то пошло не так" });
       }

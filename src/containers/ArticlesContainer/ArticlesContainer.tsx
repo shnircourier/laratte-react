@@ -26,22 +26,27 @@ const ArticlesContainer: React.FC = () => {
       history.push('/articles/' + id);
    }
 
+   let articles = <><Sidebar>
+      <ArticleTagsSorter />
+   </Sidebar>
+      <Articles
+         posts={posts.posts}
+         users={users.users}
+         photos={photos.photos}
+         onClickHandler={onClickButtonHandler}
+      />
+   </>;
+
    if (users.loading && posts.loading && photos.loading)
-      return <Spinner />;
+      articles = <Spinner />;
 
    if (users.error || posts.error || photos.error)
-      return <h1>Что-то пошло не так :(</h1>
+      articles = <h1>Что-то пошло не так :(</h1>;
+
 
    return (
       <>
-         <Sidebar>
-            <ArticleTagsSorter />
-         </Sidebar>
-         <Articles
-            posts={posts.posts}
-            users={users.users}
-            onClickHandler={onClickButtonHandler}
-         />
+         {articles}
       </>
    );
 }

@@ -9,9 +9,11 @@ export const initUsers = () => {
    return async (dispatch: Dispatch<UserAction>) => {
       try {
          dispatch({ type: UserActionTypes.INIT_USERS });
-         const response: UserInterface[] = await (await fetch('https://jsonplaceholder.typicode.com/users')).json();
-         dispatch({ type: UserActionTypes.INIT_USERS_COMPLETED, payload: response });
-      } catch (error) {
+         const response = await fetch('https://jsonplaceholder.typicode.com/users');
+         if (!response.ok) throw new Error();
+         const body: UserInterface[] = await response.json();
+         dispatch({ type: UserActionTypes.INIT_USERS_COMPLETED, payload: body });
+      } catch (e) {
          dispatch({ type: UserActionTypes.INIT_USERS_FAILED, payload: "Ошибка загрузки пользователей" });
       }
    }

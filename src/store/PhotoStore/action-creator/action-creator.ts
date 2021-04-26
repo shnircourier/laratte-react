@@ -8,8 +8,10 @@ export const initPhotos = () => {
    return async (dispatch: Dispatch<PhotoAction>) => {
       try {
          dispatch({ type: PhotoActionTypes.INIT_PHOTOS });
-         const response: PhotoInterface[] = await (await fetch('https://jsonplaceholder.typicode.com/photos')).json();
-         dispatch({ type: PhotoActionTypes.INIT_PHOTOS_COMPLETED, payload: response });
+         const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+         if (!response.ok) throw new Error();
+         const body: PhotoInterface[] = await response.json();
+         dispatch({ type: PhotoActionTypes.INIT_PHOTOS_COMPLETED, payload: body });
       } catch (error) {
          dispatch({ type: PhotoActionTypes.INIT_PHOTOS_FAILED, payload: "Что-то пошло не так" });
       }

@@ -50,7 +50,7 @@ const ArticleContainer: React.FC = () => {
             <ArticleImage imgUrl={photo?.url} />
             <ArticleContent text={post?.body}>
                <ArticleTitle title={post?.title} />
-               <ArticleAuthor name={user?.name} email={user?.email} />
+               <ArticleAuthor name={user?.name} email={user?.email} photo={photo.thumbnailUrl} />
             </ArticleContent>
          </Article>
          <ArticleUserInfo photo={photo.thumbnailUrl} user={user} />

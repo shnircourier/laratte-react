@@ -5,24 +5,28 @@ import Article from './Article/Article';
 import ArticleSorter from './ArticleSorter/ArticleSorter';
 import ArticleList from './Article/ArticleList/ArticleList';
 import './Articles.scss';
+import PhotoInterface from '../../interfaces/PhotoInterface';
 
 type ArticlesProps = {
    posts: PostInterface[],
    users: UserInterface[],
+   photos: PhotoInterface[],
    onClickHandler: (id: number) => void
 }
 
 const articles: React.FC<ArticlesProps> = props => {
-   const { posts, users, onClickHandler } = props;
+   const { posts, users, onClickHandler, photos } = props;
 
    return (
       <div className="articles">
          <div className="articles__container">
             <ArticleSorter />
-            {posts.map(post => <Article key={post.id}>
+            {posts.map((post, index) => <Article key={post.id}>
                <ArticleList
+                  withImg={index === 0}
                   post={post}
                   user={users.find(user => user.id === post.userId)}
+                  photo={photos.find(photo => photo.id === post.userId)}
                   onClickHandler={onClickHandler}
                />
             </Article>)}
