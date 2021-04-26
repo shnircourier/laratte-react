@@ -9,7 +9,7 @@ import './Articles.scss';
 type ArticlesProps = {
    posts: PostInterface[],
    users: UserInterface[],
-   onClickHandler: (id?: number) => void
+   onClickHandler: (id: number) => void
 }
 
 const articles: React.FC<ArticlesProps> = props => {

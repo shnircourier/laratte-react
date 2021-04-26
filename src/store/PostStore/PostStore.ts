@@ -6,7 +6,7 @@ import PostState from "./interfaces/PostState"
 
 
 const initialState: PostState = {
-   users: [],
+   posts: [],
    loading: false,
    error: null
 }
@@ -16,19 +16,19 @@ export const postReducer = (state: PostState = initialState, action: PostAction)
    switch (action.type) {
       case PostActionTypes.INIT_POSTS:
          return {
-            users: [],
+            posts: [],
             loading: true,
             error: null
          }
       case PostActionTypes.INIT_POSTS_FAILED:
          return {
-            users: [],
+            posts: [],
             loading: false,
             error: action.payload
          }
       case PostActionTypes.INIT_POSTS_COMPLETED:
          return {
-            users: action.payload,
+            posts: action.payload,
             loading: false,
             error: null
          }

@@ -2,7 +2,7 @@ import PostInterface from "../../../interfaces/PostInterface";
 
 
 export default interface PostState {
-   users: PostInterface[],
+   posts: PostInterface[],
    loading: boolean,
    error: null | string
 }

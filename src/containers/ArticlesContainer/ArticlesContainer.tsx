@@ -1,49 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Articles from '../../components/Articles/Articles';
-import PostInterface from '../../interfaces/PostInterface';
-import UserInterface from '../../interfaces/UserInterface';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import Sidebar from '../../components/UI/Sidebar/Sidebar';
 import ArticleTagsSorter from '../../components/Articles/ArticleTagsSorter/ArticleTagsSorter';
 import { useHistory } from 'react-router';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useDispatch } from 'react-redux';
+import { initUsers } from '../../store/UserStore/action-creator/action-creator';
+import { initPosts } from '../../store/PostStore/action-creator/action-creator';
+import { initPhotos } from '../../store/PhotoStore/action-creator/action-creator';
 
 
 const ArticlesContainer: React.FC = () => {
-   const [posts, setPosts] = useState<PostInterface[]>([]);
-   const [users, setUsers] = useState<UserInterface[]>([]);
    const history = useHistory();
+   const { users, photos, posts } = useTypedSelector(state => state)
+   const dispatch = useDispatch();
 
-   const onClickButtonHandler = (id?: number) => {
-      if (id)
-         history.push('/articles/' + id);
+   useEffect(() => {
+      dispatch(initUsers());
+      dispatch(initPosts());
+      dispatch(initPhotos());
+   }, []);
+
+   const onClickButtonHandler = (id: number) => {
+      history.push('/articles/' + id);
    }
 
-   let articles = <Spinner />
+   if (users.loading && posts.loading && photos.loading)
+      return <Spinner />;
 
-   if (posts.length !== 0 && users.length !== 0)
-      articles = <>
+   if (users.error || posts.error || photos.error)
+      return <h1>Что-то пошло не так :(</h1>
+
+   return (
+      <>
          <Sidebar>
             <ArticleTagsSorter />
          </Sidebar>
          <Articles
-            posts={posts}
-            users={users}
+            posts={posts.posts}
+            users={users.users}
             onClickHandler={onClickButtonHandler}
          />
-      </>;
-
-   useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/users')
-         .then(res => res.json() as Promise<UserInterface[]>)
-         .then(data => setUsers(data));
-      fetch('https://jsonplaceholder.typicode.com/posts')
-         .then(res => res.json() as Promise<PostInterface[]>)
-         .then(data => setPosts(data));
-   }, []);
-
-   return (
-      <>
-         {articles}
       </>
    );
 }

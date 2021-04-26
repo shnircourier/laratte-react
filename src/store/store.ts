@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
    photos: photoReducer
 });
 
-
+export type RootState = ReturnType<typeof rootReducer>;
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
 
