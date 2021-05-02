@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FormConfig } from '../../interfaces/InputInterface';
-
+import Form from '../../components/UI/Form/Form';
 
 
 const SignIn: React.FC = () => {
@@ -13,7 +13,7 @@ const SignIn: React.FC = () => {
             type: "email",
             label: "e-mail",
             isClicked: false,
-            valid: false
+            valid: false,
          },
          password: {
             value: "",
@@ -30,24 +30,31 @@ const SignIn: React.FC = () => {
 
 
    const onChangeFormInputsHandler = (e: React.FormEvent<HTMLInputElement>, key: string) => {
+
+      const inputValue = e.currentTarget.value;
+      
       setForm(prev => {
+         console.log(inputValue, key);
          return {
             ...prev,
             inputs: {
                ...prev.inputs,
                [key]: {
                   ...prev.inputs[key],
-                  value: e.currentTarget.value
+                  value: inputValue
                }
             }
          };
       });
+
    }
+
+
 
 
    return (
       <>
-
+         <Form form={form} onChange={onChangeFormInputsHandler} />
       </>
    );
 }

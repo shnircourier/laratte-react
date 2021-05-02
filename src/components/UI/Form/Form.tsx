@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormConfig } from '../../../interfaces/InputInterface';
 import Input from './Input/Input';
 
 type FormPropsType = {
-   form: FormConfig
+   form: FormConfig,
+   onChange: (e: React.FormEvent<HTMLInputElement>, key: string) => void
 }
 
 const form: React.FC<FormPropsType> = props => {
@@ -27,7 +28,10 @@ const form: React.FC<FormPropsType> = props => {
             </div>
             <div className="form-container__form">
                <form action="">
-                  {formInputs.map(input => <Input key={input.name} {...input} />)}
+                  {formInputs.map(input => <Input
+                     key={input.name}
+                     {...input}
+                     onChange={props.onChange} />)}
                </form>
             </div>
          </div>
