@@ -1,4 +1,4 @@
-import UserInterface from "../../../../interfaces/UserInterface";
+import UserInterface from "../../../../interfaces/api/UserInterface";
 import UserActionTypes from "../../constants/UserActionTypes";
 
 export interface InitUsers {

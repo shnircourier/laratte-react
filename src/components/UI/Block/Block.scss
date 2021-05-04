@@ -1,10 +1,11 @@
-.article {
+.block {
    margin-top: 16px;
    background-color: #ffffff;
    border-radius: 8px;
    box-sizing: border-box;
    overflow: hidden;
    box-shadow: 0 0 1px #000000;
+   align-self: flex-start;
 
    &:first-child {
       margin-top: 0;
@@ -14,12 +15,29 @@
       margin-bottom: 16px;
    }
 
-   &.article_single {
+   &.block_single {
       &:first-child {
          margin-top: 16px;
-         width: 100%;
       }
       margin-bottom: 16px;
+   }
+
+   &.block_fullWidth {
+      &:first-child {
+         width: 100%;
+      }
+   }
+
+   &.block_halfWidth {
+      &:first-child {
+         width: 50%;
+      }
+   }
+
+   &.block_autoWidth {
+      &:first-child {
+         width: auto;
+      }
    }
 
 

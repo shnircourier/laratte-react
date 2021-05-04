@@ -4,6 +4,7 @@ import ArticleContainer from '../containers/ArticleContainer/ArticleContainer';
 import ArticlesContainer from '../containers/ArticlesContainer/ArticlesContainer';
 import Layout from '../containers/Layout/Layout';
 import SignIn from '../containers/SignIn/SignIn';
+import SignUp from '../containers/SignUp/SignUp';
 
 
 const Routes: React.FC = () => {
@@ -14,6 +15,7 @@ const Routes: React.FC = () => {
                <Route component={ArticlesContainer} path="/" exact />
                <Route component={ArticleContainer} path="/articles/:id" />
                <Route component={SignIn} path="/signin" exact />
+               <Route component={SignUp} path="/signup" exact />
             </Switch>
          </Layout>
       </Router>

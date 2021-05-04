@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import PhotoInterface from '../../interfaces/PhotoInterface';
-import PostInterface from '../../interfaces/PostInterface';
-import UserInterface from '../../interfaces/UserInterface';
+import PhotoInterface from '../../interfaces/api/PhotoInterface';
+import PostInterface from '../../interfaces/api/PostInterface';
+import UserInterface from '../../interfaces/api/UserInterface';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import Article from '../../components/Articles/Article/Article';
+import Article, { Width } from '../../components/UI/Block/Block';
 import ArticleImage from '../../components/Articles/Article/ArticleImage/ArticleImage';
 import ArticleContent from '../../components/Articles/Article/ArticleContent/ArticleContent';
 import ArticleTitle from '../../components/Articles/Article/ArticleTitle/ArticleTitle';
@@ -46,7 +46,7 @@ const ArticleContainer: React.FC = () => {
          <Sidebar>
             <ArticleStats />
          </Sidebar>
-         <Article single>
+         <Article width={Width.FULL} single>
             <ArticleImage imgUrl={photo?.url} />
             <ArticleContent text={post?.body}>
                <ArticleTitle title={post?.title} />

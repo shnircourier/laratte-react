@@ -16,6 +16,6 @@ export interface Inputs {
 
 export interface FormConfig {
    valid: boolean,
-   onSubmit: (e: FormEvent<HTMLFormElement>) => void,
+   onSubmit: () => void,
    inputs: Inputs
 }

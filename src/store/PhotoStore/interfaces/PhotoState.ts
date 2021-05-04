@@ -1,4 +1,4 @@
-import PhotoInterface from "../../../interfaces/PhotoInterface";
+import PhotoInterface from "../../../interfaces/api/PhotoInterface";
 
 
 export default interface PhotoState {

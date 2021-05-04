@@ -1,4 +1,4 @@
-import PostInterface from "../../../../interfaces/PostInterface";
+import PostInterface from "../../../../interfaces/api/PostInterface";
 import PostActionTypes from "../../constants/PostActionTypes";
 
 

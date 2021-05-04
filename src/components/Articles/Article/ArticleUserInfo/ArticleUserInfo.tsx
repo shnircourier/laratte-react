@@ -1,5 +1,5 @@
 import React from 'react';
-import UserInterface from '../../../../interfaces/UserInterface';
+import UserInterface from '../../../../interfaces/api/UserInterface';
 import './ArticleUserInfo.scss';
 
 type ArticleUserInfoType = {

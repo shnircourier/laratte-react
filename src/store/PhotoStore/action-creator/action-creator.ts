@@ -1,5 +1,5 @@
 import { Dispatch } from "redux"
-import PhotoInterface from "../../../interfaces/PhotoInterface"
+import PhotoInterface from "../../../interfaces/api/PhotoInterface"
 import PhotoActionTypes from "../constants/PhotoActionTypes"
 import PhotoAction from "../interfaces/PhotoAction"
 

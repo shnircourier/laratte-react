@@ -1,11 +1,11 @@
 import React from 'react';
-import PostInterface from '../../interfaces/PostInterface';
-import UserInterface from '../../interfaces/UserInterface';
-import Article from './Article/Article';
+import PostInterface from '../../interfaces/api/PostInterface';
+import UserInterface from '../../interfaces/api/UserInterface';
+import Article from '../UI/Block/Block';
 import ArticleSorter from './ArticleSorter/ArticleSorter';
 import ArticleList from './Article/ArticleList/ArticleList';
 import './Articles.scss';
-import PhotoInterface from '../../interfaces/PhotoInterface';
+import PhotoInterface from '../../interfaces/api/PhotoInterface';
 
 type ArticlesProps = {
    posts: PostInterface[],

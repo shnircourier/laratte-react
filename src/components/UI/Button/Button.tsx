@@ -3,13 +3,20 @@ import './Button.scss';
 
 type buttonProps = {
    type?: string,
-   onClickHandler: (id?: number) => void
+   disabled?: boolean,
+   onClickHandler: (data?: any) => void
 }
 
 const button: React.FC<buttonProps> = props => {
 
    return (
-      <button onClick={() => props.onClickHandler()} className="button"><span className="button__text">{props.children}</span></button>
+      <button
+         onClick={() => props.onClickHandler()}
+         className="button"
+         disabled={props.disabled}
+      >
+         <span className="button__text">{props.children}</span>
+      </button>
    );
 }
 

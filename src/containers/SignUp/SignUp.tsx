@@ -1,13 +1,21 @@
-import React, { useCallback, useState } from 'react';
-import { FormConfig } from '../../interfaces/InputInterface';
+import React, { useState } from 'react';
 import Block from '../../components/UI/Block/Block';
 import Form from '../../components/UI/Form/Form';
+import { FormConfig } from '../../interfaces/InputInterface';
 
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
 
    const [form, setForm] = useState<FormConfig>({
       inputs: {
+         name: {
+            value: "",
+            placeholder: "Enter your name",
+            type: "text",
+            label: "name",
+            isClicked: false,
+            valid: false
+         },
          email: {
             value: "",
             placeholder: "Enter your E-mail",
@@ -23,6 +31,14 @@ const SignIn: React.FC = () => {
             placeholder: "Enter your password",
             isClicked: false,
             valid: false
+         },
+         repeatPassword: {
+            value: "",
+            type: "password",
+            label: "repeat password",
+            placeholder: "Repeat your password",
+            isClicked: false,
+            valid: false
          }
       },
       onSubmit: () => {
@@ -31,9 +47,7 @@ const SignIn: React.FC = () => {
       valid: false
    });
 
-
    const onChangeFormInputsHandler = (e: React.FormEvent<HTMLInputElement>, key: string) => {
-
       const inputValue = e.currentTarget.value;
 
       setForm(prev => {
@@ -49,16 +63,17 @@ const SignIn: React.FC = () => {
             }
          };
       });
-
    }
+
+
    return (
       <>
          <Block single>
             <Form
                form={form}
                onChange={onChangeFormInputsHandler}
-               title="Sign In Form"
-               submitText="Sign In"
+               title="Sign Up Form"
+               submitText="Sign Up"
             />
          </Block>
       </>
@@ -66,4 +81,4 @@ const SignIn: React.FC = () => {
 }
 
 
-export default SignIn;
+export default SignUp;
